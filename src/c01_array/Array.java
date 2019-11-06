@@ -57,6 +57,14 @@ public class Array<E> {
         }
         return this.data[index];
     }
+
+    //获取最后一个值
+    public E getLast(){
+        return this.get(this.size -1);
+    }
+    public E getFirst(){
+        return this.get(0);
+    }
     //根据索引修改值
     public void set(int index,E o){
         if (index < 0 || index >= size){
