@@ -22,6 +22,7 @@ public class LinkedList<E> {
         head = node;*/
         add(0,e);
     }
+
     //在链表的index位置添加元素
     public void add(int index,E e){
         if (index < 0 || index > this.size){
@@ -106,6 +107,24 @@ public class LinkedList<E> {
     public E removeLast(){
         return remove(this.size -1);
     }
+    //删除给定元素
+    public void removeElement(E e) {
+        if (!contains(e)){
+            throw new RuntimeException("要删除的元素不存在");
+        }
+        Node pre = this.dummyHead;
+        while (pre.next != null){
+            if (pre.next.e.equals(e)){
+                Node node = pre.next;
+                pre.next = node.next;
+                node.next = null;
+                break;
+            }else {
+                pre = pre.next;
+            }
+        }
+    }
+    @Override
     public String toString(){
        /* StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[");
@@ -141,6 +160,7 @@ public class LinkedList<E> {
             this(null,null);
         }
 
+        @Override
         public String toString(){
             return e.toString();
         }
