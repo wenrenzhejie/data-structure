@@ -14,6 +14,13 @@ public class Array<E> {
         //默认声明一个容量为10的数组
         this(10);
     }
+    public Array(E[] arr){
+        data = (E[]) new Object[arr.length];
+        for (int i = 0;i < arr.length;i++){
+            data[i] = arr[i];
+        }
+        this.size = arr.length;
+    }
     //数组容量
     public int getCapacity(){
         return data.length;
@@ -127,6 +134,15 @@ public class Array<E> {
             newData[i] = this.data[i];
         }
         this.data = newData;
+    }
+    //交换两个元素
+    public void swap(int i,int j){
+        if (i < 0 || i >= this.size |j < 0 || j>= this.size){
+            throw new RuntimeException("传入的索引不合法");
+        }
+        E temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
     }
     @Override
     public String toString(){
