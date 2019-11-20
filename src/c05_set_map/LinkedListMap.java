@@ -64,7 +64,7 @@ public class LinkedListMap<K,V> implements Map<K,V>{
     public int getSize() {
         return this.size;
     }
-    public Node getNode(K key){
+    private Node getNode(K key){
         Node node = this.dummyHead.next;
         while (node != null){
             if (key.equals(node.key)){
